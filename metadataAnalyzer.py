@@ -4,15 +4,15 @@ import json
 
 def run_program_for_file(file_path):
     # Replace 'exiftool' with the actual path to your exiftool executable
-    exiftool_path = r'C:\Path\To\ExifTool\exiftool.exe'
+    exiftool_path = r'C:/Users/dloiacono/Downloads/exiftool-12.67/exiftool(-u -g1 -j).exe'
     
     try:
         # Run exiftool to get metadata as JSON
-        result = subprocess.run([exiftool_path, '-json', file_path], capture_output=True, text=True, check=True)
+        result = subprocess.run([exiftool_path, file_path], capture_output=True, text=True, check=True)
         
         # Parse the JSON result
         json_result = json.loads(result.stdout)
-        
+        #print(json_result)
         # Extract the file name without extension
         file_name = os.path.splitext(os.path.basename(file_path))[0]
         
@@ -32,10 +32,10 @@ def main():
     global output_directory
     
     # Replace 'C:\Path\To\Your\Directory' with the path to your directory
-    directory_path = r'C:\Path\To\Your\Directory'
+    directory_path = r'C:/Users/dloiacono/Downloads/C/Users/dloiacono/Pictures'
     
     # Replace 'C:\Path\To\Output\Directory' with the path to your output directory
-    output_directory = r'C:\Path\To\Output\Directory'
+    output_directory = r'C:/Users/dloiacono/Desktop/metadataAnalysis'
     
     # Create a dictionary to hold file data
     file_data = {}
@@ -46,6 +46,7 @@ def main():
         
         # Iterate over each file and run the program
         for file in files:
+            print(file)
             file_path = os.path.join(directory_path, file)
             
             # Check if the item is a file (not a subdirectory)
