@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 def run_program_for_file(file_path):
     # Replace 'exiftool' with the actual path to your exiftool executable
-    exiftool_path = r'C:/Users/dloiacono/Downloads/exiftool-12.67/exiftool(-u -g1 -j).exe'
+    exiftool_path = r'C:/Users/dloiacono/Downloads/exiftool-12.67/exiftool(-u -j).exe'
     
     try:
         # Run exiftool to get metadata as JSON
@@ -34,6 +34,7 @@ def main():
     
     # Replace 'C:\Path\To\Your\Directory' with the path to your directory
     directory_path = r'C:/Users/dloiacono/Downloads/C/Users/dloiacono/Pictures'
+    # directory_path = r'C:/Users/dloiacono/Downloads/C/Users/dloiacono'
     
     # Replace 'C:\Path\To\Output\Directory' with the path to your output directory
     output_directory = r'C:/Users/dloiacono/Desktop/metadataAnalysis'
@@ -61,19 +62,26 @@ def main():
 
     file_names = []
     page_counts = []
-
+    # print(file_data)
     for data_str in file_data:
         try:
-            data = json.loads(data_str)
-            file_names.append(data.get('SourceFile', 'Unknown'))
+            # print(type(file_data[data_str]))
+            jsonList = file_data[data_str]
+            # print(jsonList[0])
+            jsonDict = jsonList[0]
             
+            file_names.append(jsonDict.get('SourceFile', 'Unknown'))
+            
+            temp = jsonDict["PageCount"]
+            # print(temp)
+            page_counts.append(temp)
             # Ensure 'PDF' is present in the loaded data
-            if 'PDF' in data:
-                tempList = data["PDF"]
-                print(tempList[2])
-                page_counts.append(tempList[2])
-            else:
-                page_counts.append(0)
+            # if 'Pagecount' in jsonDict:
+            #     temp = jsonDict["Pagecount"]
+            #     print(temp)
+            #     page_counts.append(temp)
+            # else:
+            #     page_counts.append(0)
         except json.JSONDecodeError:
             print(f"Error decoding JSON for data: {data_str}")
         except Exception as e:
