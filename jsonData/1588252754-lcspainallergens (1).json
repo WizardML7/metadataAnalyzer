@@ -1,0 +1,66 @@
+[
+  {
+    "SourceFile": "C:/Users/dloiacono/Downloads/C/Users/dloiacono/Pictures/1588252754-lcspainallergens (1).pdf",
+    "ExifTool": {
+      "ExifToolVersion": 12.67
+    },
+    "System": {
+      "FileName": "1588252754-lcspainallergens (1).pdf",
+      "Directory": "C:/Users/dloiacono/Downloads/C/Users/dloiacono/Pictures",
+      "FileSize": "56 kB",
+      "ZoneIdentifier": "Exists",
+      "FileModifyDate": "2023:12:01 11:44:18-05:00",
+      "FileAccessDate": "2023:12:02 16:32:05-05:00",
+      "FileCreateDate": "2023:12:01 11:44:15-05:00",
+      "FilePermissions": "-rw-rw-rw-"
+    },
+    "File": {
+      "FileType": "PDF",
+      "FileTypeExtension": "pdf",
+      "MIMEType": "application/pdf"
+    },
+    "PDF": {
+      "PDFVersion": 1.4,
+      "Linearized": "Yes",
+      "Language": "en-US",
+      "TaggedPDF": "Yes",
+      "PageCount": 1,
+      "CreateDate": "2019:12:06 14:45:24-05:00",
+      "Creator": "Adobe InDesign 15.0 (Macintosh)",
+      "ModifyDate": "2019:12:06 14:45:27-05:00",
+      "Producer": "Adobe PDF Library 15.0",
+      "Trapped": false
+    },
+    "XMP-x": {
+      "XMPToolkit": "Adobe XMP Core 5.6-c148 79.164036, 2019/08/13-01:06:57        "
+    },
+    "XMP-xmp": {
+      "CreateDate": "2019:12:06 14:45:24-05:00",
+      "MetadataDate": "2019:12:06 14:45:27-05:00",
+      "ModifyDate": "2019:12:06 14:45:27-05:00",
+      "CreatorTool": "Adobe InDesign 15.0 (Macintosh)"
+    },
+    "XMP-xmpMM": {
+      "InstanceID": "uuid:d5fedf29-e465-1549-9c28-dfdaf17e8d1b",
+      "OriginalDocumentID": "xmp.did:447defe9-125f-4147-a9ef-c3e271622dca",
+      "DocumentID": "xmp.id:4f15c8c4-37a2-40de-a33a-a2a109098dba",
+      "RenditionClass": "proof:pdf",
+      "HistoryAction": "converted",
+      "HistoryParameters": "from application/x-indesign to application/pdf",
+      "HistorySoftwareAgent": "Adobe InDesign 15.0 (Macintosh)",
+      "HistoryChanged": "/",
+      "HistoryWhen": "2019:12:06 14:45:24-05:00",
+      "DerivedFromInstanceID": "xmp.iid:f7a3d32c-1ccb-4203-a2fa-425b08566892",
+      "DerivedFromDocumentID": "xmp.did:447defe9-125f-4147-a9ef-c3e271622dca",
+      "DerivedFromOriginalDocumentID": "xmp.did:447defe9-125f-4147-a9ef-c3e271622dca",
+      "DerivedFromRenditionClass": "default"
+    },
+    "XMP-dc": {
+      "Format": "application/pdf"
+    },
+    "XMP-pdf": {
+      "Producer": "Adobe PDF Library 15.0",
+      "Trapped": false
+    }
+  }
+]
