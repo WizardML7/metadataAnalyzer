@@ -20,10 +20,10 @@ def run_program_for_file(file_path):
         # Store the JSON object in the dictionary
         file_data[file_name] = json_result
         
-        Optionally, write the JSON object to a separate file
-        output_file_path = os.path.join(output_directory, f'{file_name}.json')
-        with open(output_file_path, 'w') as output_file:
-            json.dump(json_result, output_file, indent=2)
+        # Optionally, write the JSON object to a separate file
+        # output_file_path = os.path.join(output_directory, f'{file_name}.json')
+        # with open(output_file_path, 'w') as output_file:
+        #     json.dump(json_result, output_file, indent=2)
         
     except subprocess.CalledProcessError as e:
         print(f"Error running exiftool for {file_path}: {e}")
@@ -33,11 +33,11 @@ def main():
     global output_directory
     
     # Replace 'C:\Path\To\Your\Directory' with the path to your directory
-    directory_path = r'C:/Users/dloiacono/Downloads/C/Users/dloiacono/Pictures'
+    directory_path = r'C:/Users/dloiacono/Desktop/metadataAnalysis/metadataAnalyzer/PDFs'
     # directory_path = r'C:/Users/dloiacono/Downloads/C/Users/dloiacono'
     
     # Replace 'C:\Path\To\Output\Directory' with the path to your output directory
-    output_directory = r'C:\Users\dloiacono\Desktop\metadataAnalysis\metadataAnalyzer\jsonData'
+    output_directory = r'C:/Users/dloiacono/Desktop/metadataAnalysis/metadataAnalyzer/jsonData'
     
     # Create a dictionary to hold file data
     file_data = {}
@@ -62,6 +62,7 @@ def main():
 
     countOfAuthors = 0
     countOfAdobe = 0
+    countOfMicrosoft = 0
 
     file_names = []
     page_counts = []
@@ -95,6 +96,15 @@ def main():
 
         try:
             print(jsonDict["Creator"])
+            creatorStr = jsonDict["Creator"]
+            creatorStr = creatorStr.split()
+            if creatorStr[0] == "Adobe":
+                countOfAdobe += 1
+                print("ADOBE")
+            elif creatorStr[0] == "MicrosoftÂ®":
+                countOfMicrosoft += 1
+                print("MICROSOFT")
+
             # if jsonDict["Creator"]
         except json.JSONDecodeError:
             print(f"Error decoding JSON for data: {data_str}")
@@ -110,6 +120,8 @@ def main():
     plt.ylabel('Number of Pages')
     plt.title('Number of Pages for Each PDF File')
     plt.show()
+
+    print("Report: \nThe number of Authors Identified: " + str(countOfAuthors) + "\nThe number of Adobe documents Identified: " + str(countOfAdobe) + "\nThe number of Microsoft Office documents Identified: " + str(countOfMicrosoft))
 
 if __name__ == "__main__":
     main()
