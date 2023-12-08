@@ -20,10 +20,10 @@ def run_program_for_file(file_path):
         # Store the JSON object in the dictionary
         file_data[file_name] = json_result
         
-        # Optionally, write the JSON object to a separate file
-        # output_file_path = os.path.join(output_directory, f'{file_name}.json')
-        # with open(output_file_path, 'w') as output_file:
-        #     json.dump(json_result, output_file, indent=2)
+        Optionally, write the JSON object to a separate file
+        output_file_path = os.path.join(output_directory, f'{file_name}.json')
+        with open(output_file_path, 'w') as output_file:
+            json.dump(json_result, output_file, indent=2)
         
     except subprocess.CalledProcessError as e:
         print(f"Error running exiftool for {file_path}: {e}")
@@ -37,7 +37,7 @@ def main():
     # directory_path = r'C:/Users/dloiacono/Downloads/C/Users/dloiacono'
     
     # Replace 'C:\Path\To\Output\Directory' with the path to your output directory
-    output_directory = r'C:/Users/dloiacono/Desktop/metadataAnalysis'
+    output_directory = r'C:\Users\dloiacono\Desktop\metadataAnalysis\metadataAnalyzer\jsonData'
     
     # Create a dictionary to hold file data
     file_data = {}
@@ -60,6 +60,9 @@ def main():
     except Exception as e:
         print(f"An error occurred: {e}")
 
+    countOfAuthors = 0
+    countOfAdobe = 0
+
     file_names = []
     page_counts = []
     # print(file_data)
@@ -73,19 +76,31 @@ def main():
             file_names.append(jsonDict.get('SourceFile', 'Unknown'))
             
             temp = jsonDict["PageCount"]
-            # print(temp)
             page_counts.append(temp)
-            # Ensure 'PDF' is present in the loaded data
-            # if 'Pagecount' in jsonDict:
-            #     temp = jsonDict["Pagecount"]
-            #     print(temp)
-            #     page_counts.append(temp)
-            # else:
-            #     page_counts.append(0)
         except json.JSONDecodeError:
             print(f"Error decoding JSON for data: {data_str}")
         except Exception as e:
             print(f"Error processing data: {e}")
+
+        try:
+            if jsonDict["Author"] != "":
+                countOfAuthors += 1
+
+            # print(jsonDict["Creator"])
+            # if jsonDict["Creator"]
+        except json.JSONDecodeError:
+            print(f"Error decoding JSON for data: {data_str}")
+        except Exception as e:
+            print(f"Error processing data: {e}")
+
+        try:
+            print(jsonDict["Creator"])
+            # if jsonDict["Creator"]
+        except json.JSONDecodeError:
+            print(f"Error decoding JSON for data: {data_str}")
+        except Exception as e:
+            print(f"Error processing data: {e}")
+        
 
 
     plt.figure(figsize=(20, 12))
